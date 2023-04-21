@@ -1,16 +1,15 @@
 ### Hi there 👋
 
-<!--
-**thienhuonqq/thienhuonqq** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+🌱 I'm an aspiring data analyst fascinated with the ability to translate large datasets to uncover insights and make data-driven decisions.
 
-Here are some ideas to get you started:
+💪 I have experienced using SQL, Python, R, Excel and Tableau to clean and organize data, execute data analysis, and create insightful visualizations to communicate findings with stakeholders.
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+✨ As a data analyst, I have a strong attention to detail, excellent problem-solving skills, and most importantly, a passion with data.
+
+🔎 I'm looking to work with you as a data analyst.
+
+🎓 I hold a Bachelor of Commerce degree with a major in Business Analytics, which has equipped me with the necessary knowledge and skills to analyze and interpret complex data sets.
+
+💼 Currently, I'm seeking new opportunities to leverage my skills and knowledge to help businesses make better decisions and drive growth.
+
+Please feel free to check out my projects and connect with me on LinkedIn.
