@@ -1,66 +1,511 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>My Portfolio</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-  </head>
-  <body>
-    <header>
-      <nav>
-        <ul>
-          <li><a href="#about">About</a></li>
-          <li><a href="#experience">Experience</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </nav>
-    </header>
-    <main>
-      <section id="hero">
-        <h1>Welcome to My Portfolio</h1>
-        <p>I'm a data analyst with a passion for turning data into insights.</p>
-        <a href="#contact" class="button">Get in Touch</a>
-      </section>
-      <section id="about">
-        <h2>About Me</h2>
-        <img src="profile.jpg" alt="Profile Picture">
-        <p>My name is Joanna Khek and I'm a data analyst with 3 years of experience analyzing large datasets and providing insights to stakeholders. I specialize in SQL, Python, and data visualization, and I'm always looking to learn more about the latest data technologies.</p>
-        <ul>
-          <li><strong>Name:</strong> Joanna Khek</li>
-          <li><strong>Location:</strong> San Francisco, CA</li>
-          <li><strong>Email:</strong> joanna.khek@example.com</li>
-        </ul>
-      </section>
-      <section id="experience">
-        <h2>Experience</h2>
-        <ul>
-          <li>
-            <h3>Data Analyst</h3>
-            <h4>ABC Company</h4>
-            <p>January 2020 - Present</p>
-            <ul>
-              <li>Analyzed large datasets using SQL and Python to provide insights to stakeholders</li>
-              <li>Created interactive dashboards using Tableau to visualize data trends and patterns</li>
-              <li>Developed predictive models using machine learning algorithms to forecast business outcomes</li>
-            </ul>
-          </li>
-          <li>
-            <h3>Data Analyst Intern</h3>
-            <h4>XYZ Agency</h4>
-            <p>June 2018 - December 2019</p>
-            <ul>
-              <li>Assisted senior data analysts in analyzing data and creating reports for clients</li>
-              <li>Developed data visualization dashboards using Excel and Power BI to present insights to stakeholders</li>
-              <li>Conducted statistical analyses to identify patterns and trends in data</li>
-            </ul>
-          </li>
-        </ul>
-      </section>
-      <section id="projects">
-        <h2>Projects</h2>
-        <ul>
-          <li>
-            <h3>Project 1: Sales Forecasting</h3>
-            <img src="project1.jpg" alt="Project
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sophie Nguyen · Data Analyst</title>
+<meta name="description" content="Senior Data Analyst at Grant Thornton Sydney. Reconciliation and document intelligence at scale on Databricks, explained in plain English.">
+<meta property="og:title" content="Sophie Nguyen · Senior Data Analyst">
+<meta property="og:description" content="I turn messy financial records into reconciled, decision-ready data.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://thienhuonqq.github.io/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300..700&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: monochrome editorial frame; each case study drops into one full-width pastel block, with white canvas between blocks. Single light theme by design (per DESIGN.md). */
+:root {
+  --ink: #000000;
+  --canvas: #ffffff;
+  --surface-soft: #f7f7f5;
+  --hairline: #e6e6e6;
+  --hairline-soft: #f1f1f1;
+  --block-lime: #dceeb1;
+  --block-lilac: #c5b0f4;
+  --block-cream: #f4ecd6;
+  --block-mint: #c8e6cd;
+  --block-navy: #1f1d3d;
+  --inverse-ink: #ffffff;
+  --sans: "Inter", "SF Pro Display", system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+  --mono: "JetBrains Mono", "SF Mono", Menlo, Consolas, monospace;
+  --r-md: 8px; --r-lg: 24px; --r-pill: 50px;
+  --section: 96px;
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body {
+  margin: 0;
+  background: var(--canvas);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 18px; font-weight: 320; line-height: 1.45; letter-spacing: -0.26px;
+  font-feature-settings: "kern";
+  -webkit-font-smoothing: antialiased;
+}
+img, svg { max-width: 100%; }
+a { color: inherit; }
+:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; border-radius: 4px; }
+.wrap { max-width: 1280px; margin: 0 auto; padding-inline: 48px; }
+@media (max-width: 768px) { .wrap { padding-inline: 24px; } }
+@media (max-width: 420px) { .wrap { padding-inline: 16px; } }
+
+/* Type roles */
+.eyebrow { font-family: var(--mono); font-size: 14px; font-weight: 400; letter-spacing: 0.54px; text-transform: uppercase; line-height: 1.3; margin: 0; }
+.caption { font-family: var(--mono); font-size: 12px; letter-spacing: 0.6px; text-transform: uppercase; line-height: 1.2; }
+.display-xl { font-size: clamp(44px, 7vw, 86px); font-weight: 340; line-height: 1.0; letter-spacing: clamp(-1.72px, -0.02em, -0.9px); margin: 0; text-wrap: balance; }
+.display-lg { font-size: clamp(36px, 5vw, 64px); font-weight: 340; line-height: 1.1; letter-spacing: -0.96px; margin: 0; text-wrap: balance; }
+.headline { font-size: 26px; font-weight: 540; line-height: 1.35; letter-spacing: -0.26px; margin: 0; text-wrap: balance; }
+.subhead { font-size: clamp(21px, 2.2vw, 26px); font-weight: 340; line-height: 1.35; letter-spacing: -0.26px; margin: 0; }
+.body-lg { font-size: 20px; font-weight: 330; line-height: 1.4; letter-spacing: -0.14px; }
+.body-sm { font-size: 16px; font-weight: 330; line-height: 1.45; letter-spacing: -0.14px; }
+
+/* Buttons: pills only */
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 44px; border-radius: var(--r-pill); font-family: var(--sans); font-size: 18px; font-weight: 480; letter-spacing: -0.1px; text-decoration: none; cursor: pointer; border: 0; transition: transform .15s ease; }
+.btn:active { transform: scale(.97); }
+.btn-primary { background: var(--ink); color: var(--canvas); padding: 10px 22px; }
+.btn-secondary { background: var(--canvas); color: var(--ink); padding: 8px 20px 10px; box-shadow: inset 0 0 0 1px var(--hairline); }
+.on-block .btn-secondary { box-shadow: none; }
+.btn-text { padding: 8px 12px; font-size: 16px; font-weight: 480; text-decoration: none; border-radius: 9999px; }
+.btn-text:hover { background: var(--surface-soft); }
+@media (prefers-reduced-motion: reduce) { .btn { transition: none; } }
+
+/* Nav */
+.nav { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 10; background: var(--canvas); border-bottom: 1px solid var(--hairline-soft); }
+.nav .wrap { height: 64px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.wordmark { font-weight: 600; font-size: 19px; letter-spacing: -0.4px; text-decoration: none; white-space: nowrap; }
+.nav-links { display: flex; align-items: center; gap: 4px; }
+.nav-cta { display: flex; gap: 8px; }
+.nav .btn { font-size: 16px; min-height: 40px; }
+@media (max-width: 960px) { .nav-links { display: none; } }
+@media (max-width: 560px) { .nav-cta .btn-secondary { display: none; } }
+
+/* Hero */
+.hero { padding-block: 88px 72px; display: grid; gap: 32px; }
+.hero .display-xl { max-width: 15ch; }
+.hero .body-lg { max-width: 58ch; margin: 0; }
+.hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+@media (max-width: 560px) { .hero { padding-block: 56px 48px; } .hero-actions .btn { width: 100%; } }
+
+/* Marquee */
+.marquee { background: var(--ink); color: var(--inverse-ink); height: 44px; overflow: hidden; display: flex; align-items: center; }
+.marquee-track { display: flex; gap: 40px; white-space: nowrap; padding-left: 40px; animation: slide 40s linear infinite; font-size: 15px; font-weight: 400; }
+.marquee-track span::before { content: "■"; font-size: 8px; vertical-align: 3px; margin-right: 12px; opacity: .55; }
+@keyframes slide { to { transform: translateX(-50%); } }
+@media (prefers-reduced-motion: reduce) { .marquee-track { animation: none; } }
+
+/* Proof bar */
+.proof { padding-block: 72px; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 32px; border-bottom: 1px solid var(--hairline); }
+.proof div { display: grid; gap: 8px; align-content: start; }
+.proof strong { font-size: clamp(40px, 4.4vw, 60px); font-weight: 340; letter-spacing: -1.2px; line-height: 1; font-variant-numeric: tabular-nums; }
+.proof p { margin: 0; max-width: 24ch; }
+@media (max-width: 860px) { .proof { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 40px 24px; } }
+
+/* Section heads */
+.section { padding-block: var(--section) 0; }
+.section-head { display: grid; gap: 16px; margin-bottom: 48px; max-width: 760px; }
+.section-head p { margin: 0; }
+
+/* Case-study colour blocks */
+.cases { display: grid; gap: 64px; }
+.case { border-radius: var(--r-lg); padding: 56px; display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 56px; align-items: center; }
+.case.lime { background: var(--block-lime); }
+.case.lilac { background: var(--block-lilac); }
+.case.cream { background: var(--block-cream); }
+.case.navy { background: var(--block-navy); color: var(--inverse-ink); }
+.case-copy { display: grid; gap: 20px; align-content: start; min-width: 0; }
+.case-copy p { margin: 0; }
+.case-steps { margin: 0; padding: 0; list-style: none; display: grid; gap: 10px; }
+.case-steps li { display: grid; grid-template-columns: 92px 1fr; gap: 12px; font-size: 16px; font-weight: 330; line-height: 1.45; }
+.case-steps b { font-family: var(--mono); font-size: 12px; font-weight: 500; letter-spacing: .6px; text-transform: uppercase; padding-top: 3px; }
+.tags { display: flex; flex-wrap: wrap; gap: 8px; }
+.tag { font-family: var(--mono); font-size: 12px; letter-spacing: .5px; text-transform: uppercase; padding: 6px 12px; border-radius: var(--r-pill); background: rgba(255,255,255,.55); }
+.navy .tag { background: rgba(255,255,255,.12); }
+.navy .btn-secondary { background: var(--inverse-ink); color: var(--block-navy); }
+.case-visual { background: var(--canvas); border-radius: var(--r-md); padding: 28px; min-width: 0; display: grid; gap: 18px; color: var(--ink); }
+.navy .case-visual { background: rgba(255,255,255,.06); color: var(--inverse-ink); box-shadow: inset 0 0 0 1px rgba(255,255,255,.14); }
+@media (max-width: 960px) { .case { grid-template-columns: 1fr; padding: 40px; gap: 36px; } }
+@media (max-width: 768px) { .case { border-radius: 0; margin-inline: -24px; padding: 40px 24px; } }
+@media (max-width: 420px) { .case { margin-inline: -16px; padding: 36px 16px; } .case-steps li { grid-template-columns: 1fr; gap: 2px; } }
+
+/* Visual 1: match rate bars */
+.bars { display: grid; gap: 20px; }
+.bar-row { display: grid; gap: 8px; }
+.bar-label { display: flex; justify-content: space-between; gap: 12px; font-size: 15px; font-weight: 400; }
+.bar-label span:last-child { font-variant-numeric: tabular-nums; font-weight: 540; }
+.bar-track { height: 18px; background: var(--hairline-soft); border-radius: 9999px; overflow: hidden; }
+.bar-fill { height: 100%; background: var(--ink); border-radius: 9999px; }
+.bar-fill.muted { background: #9a9a96; }
+.fixes { display: flex; flex-wrap: wrap; gap: 6px; padding-top: 4px; border-top: 1px solid var(--hairline); }
+.fixes .caption { width: 100%; padding-top: 14px; }
+.fix { font-size: 13px; padding: 5px 10px; border-radius: 6px; background: var(--surface-soft); font-weight: 400; }
+
+/* Visual 2: revenue bridge (illustrative) */
+.bridge { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 8px; align-items: end; height: 170px; border-bottom: 1px solid var(--ink); }
+.bridge div { position: relative; border-radius: 4px 4px 0 0; }
+.b-total { background: var(--ink); }
+.b-up { background: #6f9b4a; }
+.b-down { background: #c9705a; }
+.bridge-labels { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 8px; font-size: 12px; font-weight: 450; line-height: 1.25; text-align: center; }
+.metric-row { display: flex; flex-wrap: wrap; gap: 6px; }
+
+/* Visual 3: royalty gap */
+.gap-bars { display: grid; gap: 14px; }
+.gap-track { display: flex; height: 22px; border-radius: 9999px; overflow: hidden; background: var(--hairline-soft); }
+.gap-track .base { background: var(--ink); }
+.gap-track .delta { background: repeating-linear-gradient(135deg, #c9705a 0 6px, #e7b3a3 6px 12px); }
+.gap-note { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+.gap-note div { background: var(--surface-soft); border-radius: 6px; padding: 12px; font-size: 14px; font-weight: 450; line-height: 1.35; display: grid; gap: 6px; }
+.gap-note .ok { background: var(--block-mint); }
+.facts { display: flex; flex-wrap: wrap; gap: 6px; }
+@media (max-width: 420px) { .gap-note { grid-template-columns: 1fr; } .bridge-labels { font-size: 11px; } }
+
+/* Visual 4: app tiles on navy */
+.apps { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+.app { background: rgba(255,255,255,.08); border-radius: 6px; padding: 14px; display: grid; gap: 6px; min-width: 0; }
+.app b { font-weight: 540; font-size: 15px; }
+.app span { font-size: 13px; font-weight: 330; opacity: .9; }
+.app.wide { grid-column: 1 / -1; background: var(--block-lilac); color: var(--ink); }
+.live { display: inline-flex; align-items: center; gap: 6px; font-family: var(--mono); font-size: 11px; letter-spacing: .5px; text-transform: uppercase; }
+.live::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: #1ea64a; }
+
+/* Experience */
+.roles { display: grid; }
+.role { display: grid; grid-template-columns: 260px minmax(0, 1fr); gap: 32px; padding-block: 32px; border-top: 1px solid var(--hairline); }
+.role:last-child { border-bottom: 1px solid var(--hairline); }
+.role-meta { display: grid; gap: 8px; align-content: start; }
+.role-meta b { font-size: 20px; font-weight: 540; letter-spacing: -.2px; }
+.role-body { display: grid; gap: 16px; }
+.role-body h3 { margin: 0; font-size: 22px; font-weight: 540; letter-spacing: -.2px; }
+.role-body ul { margin: 0; padding-left: 18px; display: grid; gap: 10px; font-size: 17px; max-width: 72ch; }
+.role-stats { display: flex; flex-wrap: wrap; gap: 8px; }
+.stat { font-size: 14px; font-weight: 450; padding: 6px 12px; border-radius: var(--r-pill); background: var(--surface-soft); font-variant-numeric: tabular-nums; }
+.stat b { font-weight: 640; }
+@media (max-width: 860px) { .role { grid-template-columns: 1fr; gap: 16px; } }
+
+/* How I work */
+.how { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+.how article { border-top: 2px solid var(--ink); padding-top: 20px; display: grid; gap: 12px; align-content: start; }
+.how h3 { margin: 0; font-size: 24px; font-weight: 600; letter-spacing: -.3px; }
+.how p { margin: 0; }
+@media (max-width: 860px) { .how { grid-template-columns: 1fr; gap: 36px; } }
+
+/* Projects */
+.projects { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+.project { border: 1px solid var(--hairline); border-radius: var(--r-lg); padding: 32px; display: grid; gap: 16px; align-content: start; }
+.project p { margin: 0; }
+.status { justify-self: start; font-family: var(--mono); font-size: 12px; letter-spacing: .6px; text-transform: uppercase; padding: 6px 12px; border-radius: var(--r-pill); background: var(--block-cream); }
+.project ul { margin: 0; padding-left: 18px; display: grid; gap: 6px; font-size: 16px; }
+@media (max-width: 860px) { .projects { grid-template-columns: 1fr; } }
+
+/* Skills + experience */
+.two-col { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 64px; }
+@media (max-width: 860px) { .two-col { grid-template-columns: 1fr; gap: 48px; } }
+.skill-groups { display: grid; gap: 0; }
+.skill-group { display: grid; grid-template-columns: 170px 1fr; gap: 16px; padding-block: 18px; border-top: 1px solid var(--hairline); }
+.skill-group:last-child { border-bottom: 1px solid var(--hairline); }
+.skill-group p { margin: 0; font-size: 17px; }
+@media (max-width: 420px) { .skill-group { grid-template-columns: 1fr; gap: 6px; } }
+.timeline { list-style: none; margin: 0; padding: 0; display: grid; }
+.timeline li { display: grid; grid-template-columns: 150px 1fr; gap: 16px; padding-block: 18px; border-top: 1px solid var(--hairline); }
+.timeline li:last-child { border-bottom: 1px solid var(--hairline); }
+.timeline b { font-weight: 540; display: block; }
+.timeline span { font-size: 16px; }
+.todo { background: #fff3a8; padding: 0 4px; border-radius: 3px; }
+@media (max-width: 420px) { .timeline li { grid-template-columns: 1fr; gap: 4px; } }
+
+/* Earlier work */
+.earlier { display: flex; flex-wrap: wrap; gap: 12px; }
+.earlier a { display: grid; gap: 4px; padding: 18px 20px; border-radius: var(--r-md); background: var(--surface-soft); text-decoration: none; min-width: 0; flex: 1 1 240px; }
+.earlier a:hover { background: var(--hairline-soft); }
+.earlier b { font-weight: 540; font-size: 16px; }
+.earlier span { font-size: 14px; }
+
+/* Contact */
+.contact { margin-top: var(--section); background: var(--block-lime); border-radius: var(--r-lg); padding: 64px 56px; display: grid; gap: 28px; }
+.contact .display-lg { max-width: 16ch; }
+.contact-row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+.email { font-family: var(--mono); font-size: 15px; user-select: all; background: rgba(255,255,255,.6); padding: 10px 16px; border-radius: var(--r-pill); }
+@media (max-width: 768px) { .contact { border-radius: 0; margin-inline: -24px; padding: 48px 24px; } }
+@media (max-width: 420px) { .contact { margin-inline: -16px; padding: 40px 16px; } }
+
+footer { padding-block: 64px 48px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; }
+footer nav { display: flex; flex-wrap: wrap; gap: 20px; }
+footer a { text-decoration: none; }
+footer a:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="wordmark" href="#top">Sophie Nguyen</a>
+    <nav class="nav-links" aria-label="Sections">
+      <a class="btn-text" href="#work">Work</a>
+      <a class="btn-text" href="#experience">Experience</a>
+      <a class="btn-text" href="#about">About</a>
+    </nav>
+    <div class="nav-cta">
+      <a class="btn btn-secondary" href="https://www.linkedin.com/in/thienhuong2011/" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn btn-primary" href="https://drive.google.com/file/d/1FUD_K-32h2_xKTalb8KwsFOHGf77-ixT/view?usp=sharing" target="_blank" rel="noopener">Download CV</a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+  <section class="wrap hero">
+    <p class="eyebrow">Senior Data Analyst · Grant Thornton Financial Advisory · Sydney</p>
+    <h1 class="display-xl">I turn messy financial records into reconciled, decision-ready data.</h1>
+    <p class="body-lg">PDFs, ledgers, payroll and pricing files become audit-ready tables on Databricks, and a plain-English answer that deal, tax and legal teams can act on. Before Grant Thornton: forensic data analytics at Clayton Utz and growth analytics at Tiki.</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="#work">See case studies</a>
+      <a class="btn btn-secondary" href="https://drive.google.com/file/d/1FUD_K-32h2_xKTalb8KwsFOHGf77-ixT/view?usp=sharing" target="_blank" rel="noopener">Download CV</a>
+    </div>
+  </section>
+
+  <div class="marquee" aria-label="Core stack">
+    <div class="marquee-track">
+      <span>Databricks</span><span>PySpark</span><span>SQL</span><span>Delta Lake</span><span>Unity Catalog</span><span>Azure Document Intelligence</span><span>Azure OpenAI</span><span>Power BI</span><span>Tableau</span><span>Alteryx</span><span>Dash &amp; Streamlit</span><span>Copilot Studio</span>
+      <span aria-hidden="true">Databricks</span><span aria-hidden="true">PySpark</span><span aria-hidden="true">SQL</span><span aria-hidden="true">Delta Lake</span><span aria-hidden="true">Unity Catalog</span><span aria-hidden="true">Azure Document Intelligence</span><span aria-hidden="true">Azure OpenAI</span><span aria-hidden="true">Power BI</span><span aria-hidden="true">Tableau</span><span aria-hidden="true">Alteryx</span><span aria-hidden="true">Dash &amp; Streamlit</span><span aria-hidden="true">Copilot Studio</span>
+    </div>
+  </div>
+
+  <section class="wrap proof" aria-label="Headline results">
+    <div><strong>83%</strong><p class="body-sm">automated invoice match rate, up from ~25%, across 50,971 PDFs</p></div>
+    <div><strong>~$21M</strong><p class="body-sm">royalty gap traced to credit notes and discounts, not calculation errors</p></div>
+    <div><strong>$9M</strong><p class="body-sm">healthcare wage underpayment dispute analysed over 6 years of payroll</p></div>
+    <div><strong>5</strong><p class="body-sm">self-serve Databricks apps shipped for Financial Advisory teams</p></div>
+  </section>
+
+  <section class="wrap section" id="work">
+    <div class="section-head">
+      <p class="eyebrow">Selected work · Grant Thornton</p>
+      <h2 class="display-lg">Client problems, solved at scale</h2>
+      <p class="body-lg">Four engagements from my current role. Clients are anonymised and every visual is rebuilt without client data.</p>
+    </div>
+
+    <div class="cases">
+      <article class="case lime on-block">
+        <div class="case-copy">
+          <p class="eyebrow">Regional airline · Tax Advisory</p>
+          <h3 class="headline">Lifted automated invoice matching from ~25% to 83% so every rotable part could be valued</h3>
+          <ul class="case-steps">
+            <li><b>Problem</b><span>After the airline's recapitalisation, the tax team needed the cost of each rotable part bought, but the evidence sat in scanned PDFs.</span></li>
+            <li><b>Approach</b><span>Turned 50,971 PDFs into 72,990 invoices with Azure Document Intelligence, then matched them in Databricks with PySpark rules and a human review layer.</span></li>
+            <li><b>Result</b><span>83% matched by count and value, enough to rebuild the FY22–FY26 depreciation schedule.</span></li>
+          </ul>
+          <div class="tags"><span class="tag">PySpark</span><span class="tag">Azure AI</span><span class="tag">Reconciliation</span></div>
+        </div>
+        <div class="case-visual" aria-label="Match rate rose from about 25 percent to 83 percent">
+          <p class="caption">Invoice match rate, by count and value</p>
+          <div class="bars">
+            <div class="bar-row"><div class="bar-label"><span>First pass</span><span>~25%</span></div><div class="bar-track"><div class="bar-fill muted" style="width:25%"></div></div></div>
+            <div class="bar-row"><div class="bar-label"><span>After iterative fixes</span><span>83%</span></div><div class="bar-track"><div class="bar-fill" style="width:83%"></div></div></div>
+          </div>
+          <div class="fixes">
+            <p class="caption">50,971 PDFs → 72,990 invoices</p>
+            <span class="fix">OCR corrections</span><span class="fix">Scope exclusions</span><span class="fix">Supplier-level amount matching</span><span class="fix">Human review layer</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="case lilac on-block">
+        <div class="case-copy">
+          <p class="eyebrow">SaaS sell-side · Transaction Advisory</p>
+          <h3 class="headline">Owned the ARR analytics that showed buyers the quality of a SaaS company's revenue</h3>
+          <ul class="case-steps">
+            <li><b>Problem</b><span>Buyers needed evidence that recurring revenue was durable, across 5 product lines.</span></li>
+            <li><b>Approach</b><span>Built a customer revenue bridge (new, expansion, contraction, churn), gross and net retention, churn concentration and top-customer exposure.</span></li>
+            <li><b>Result</b><span>The deal team took a defensible revenue-quality story into the sale process.</span></li>
+          </ul>
+          <div class="tags"><span class="tag">ARR</span><span class="tag">Revenue bridge</span><span class="tag">M&amp;A</span></div>
+        </div>
+        <div class="case-visual" aria-label="Illustrative customer revenue bridge from opening to closing ARR">
+          <p class="caption">Customer revenue bridge · illustrative shape</p>
+          <div class="bridge" aria-hidden="true">
+            <div class="b-total" style="height:70%"></div>
+            <div class="b-up" style="height:16%;margin-bottom:calc(170px * .70)"></div>
+            <div class="b-up" style="height:12%;margin-bottom:calc(170px * .86)"></div>
+            <div class="b-down" style="height:6%;margin-bottom:calc(170px * .92)"></div>
+            <div class="b-down" style="height:10%;margin-bottom:calc(170px * .82)"></div>
+            <div class="b-total" style="height:82%"></div>
+          </div>
+          <div class="bridge-labels"><span>Opening ARR</span><span>New</span><span>Expansion</span><span>Contraction</span><span>Churn</span><span>Closing ARR</span></div>
+          <div class="metric-row"><span class="fix">Gross retention</span><span class="fix">Net retention</span><span class="fix">Churn concentration</span><span class="fix">Top-customer exposure</span></div>
+        </div>
+      </article>
+
+      <article class="case cream on-block">
+        <div class="case-copy">
+          <p class="eyebrow">National standards body · Royalty review</p>
+          <h3 class="headline">Rebuilt 9 pricing calculators to the cent and explained a ~$21M royalty gap</h3>
+          <ul class="case-steps">
+            <li><b>Problem</b><span>Reported royalties from 2 distributors did not agree with what the pricing rules said they should be.</span></li>
+            <li><b>Approach</b><span>Recreated the Power BI and legacy Excel/VBA calculators in Databricks with PySpark for FY23–FY26, reproducing their prices to the cent.</span></li>
+            <li><b>Result</b><span>Traced the ~$21M gap to credit notes and pricing discounts, not calculation errors.</span></li>
+          </ul>
+          <div class="tags"><span class="tag">Power BI</span><span class="tag">VBA</span><span class="tag">PySpark</span></div>
+        </div>
+        <div class="case-visual" aria-label="A gap of about 21 million dollars between reported and recalculated royalties, explained by credit notes and discounts">
+          <p class="caption">Reported vs recalculated royalties · illustrative</p>
+          <div class="gap-bars">
+            <div class="bar-row"><div class="bar-label"><span>Recalculated from pricing rules</span></div><div class="gap-track"><div class="base" style="width:100%"></div></div></div>
+            <div class="bar-row"><div class="bar-label"><span>Reported by distributors</span><span>~$21M gap</span></div><div class="gap-track"><div class="base" style="width:84%"></div><div class="delta" style="width:16%"></div></div></div>
+          </div>
+          <div class="gap-note">
+            <div><span class="caption">Driver</span>Credit notes</div>
+            <div><span class="caption">Driver</span>Pricing discounts</div>
+            <div class="ok"><span class="caption">Ruled out</span>Calculation errors</div>
+          </div>
+          <div class="facts"><span class="fix">9 calculators</span><span class="fix">2 distributors</span><span class="fix">FY23–FY26</span></div>
+        </div>
+      </article>
+
+      <article class="case navy">
+        <div class="case-copy">
+          <p class="eyebrow">Financial Advisory · Internal tooling</p>
+          <h3 class="headline">Shipped 5 self-serve Databricks apps so advisory teams stop rebuilding the same analysis</h3>
+          <ul class="case-steps">
+            <li><b>Problem</b><span>Recurring tasks were redone by hand in Excel on every engagement.</span></li>
+            <li><b>Approach</b><span>Build once, reuse: Python apps in Dash and Streamlit on Databricks, with outputs in the formats teams already use.</span></li>
+            <li><b>Result</b><span>Five apps in use across Financial Advisory, plus a Copilot Studio builder that drafts PowerPoint proposals from engagement decks.</span></li>
+          </ul>
+          <div class="tags"><span class="tag">Dash</span><span class="tag">Streamlit</span><span class="tag">Copilot Studio</span></div>
+        </div>
+        <div class="case-visual" aria-label="Five live apps">
+          <p class="caption">Live apps</p>
+          <div class="apps">
+            <div class="app wide"><span class="live">Live</span><b>ARR Model Builder</b><span>Revenue bridge, retention and churn from billing data, exported to a formula-driven workbook</span></div>
+            <div class="app"><span class="live">Live</span><b>ASIC Search Extractor</b><span>InfoTrack PDFs to formatted Excel in seconds</span></div>
+            <div class="app"><span class="live">Live</span><b>Engagement Data Register</b><span>AI-categorised data inventory</span></div>
+            <div class="app"><span class="live">Live</span><b>ABN Search</b><span>Business number lookups in bulk</span></div>
+            <div class="app"><span class="live">Live</span><b>FX Workbench</b><span>Conversions on official RBA rates</span></div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="wrap section" id="experience">
+    <div class="section-head">
+      <p class="eyebrow">Experience</p>
+      <h2 class="display-lg">Advisory, forensic and growth analytics</h2>
+    </div>
+    <div class="roles">
+      <article class="role">
+        <div class="role-meta"><span class="caption">Feb 2026 – Present</span><b>Grant Thornton Australia</b><span class="body-sm">Sydney, NSW</span></div>
+        <div class="role-body">
+          <h3>Senior Data Analyst, Financial Advisory</h3>
+          <ul>
+            <li>ARR and recurring-revenue analytics for a SaaS sell-side deal across 5 product lines.</li>
+            <li>Royalty pricing rebuilt to the cent for a national standards body; ~$21M gap explained.</li>
+            <li>Invoice matching lifted from ~25% to 83% for a regional airline's tax and depreciation work.</li>
+            <li>5 self-serve Databricks apps and a Copilot Studio proposal builder for advisory teams.</li>
+          </ul>
+        </div>
+      </article>
+      <article class="role">
+        <div class="role-meta"><span class="caption">Jan 2024 – Mar 2025</span><b>Clayton Utz</b><span class="body-sm">Sydney, NSW</span></div>
+        <div class="role-body">
+          <h3>Data Analytics Consultant, Forensic Technology Service</h3>
+          <ul>
+            <li>Led forensic analysis for a $9M healthcare wage underpayment dispute covering 6 years of payroll, testing Award and Enterprise Agreement compliance with the legal team.</li>
+            <li>Built a Python tool that automated client data ingestion and legal notice generation for copyright enforcement.</li>
+            <li>Used Azure OpenAI to summarise new regulations and compliance documents, cutting lawyer review time.</li>
+            <li>Delivered class action and wage remediation analytics in SQL, Python and Alteryx for healthcare, education, government and banking clients.</li>
+          </ul>
+          <div class="role-stats"><span class="stat"><b>$9M</b> dispute</span><span class="stat"><b>300%</b> productivity gain</span><span class="stat"><b>$50K</b> monthly recurring revenue</span></div>
+        </div>
+      </article>
+      <article class="role">
+        <div class="role-meta"><span class="caption">Jan 2021 – Feb 2022</span><b>Tiki Corporation</b><span class="body-sm">Ho Chi Minh City, Vietnam</span></div>
+        <div class="role-body">
+          <h3>Data Analyst, Growth</h3>
+          <ul>
+            <li>Built SQL-based Power BI dashboards tracking campaign KPIs for sales, marketing and finance, covering 1M+ users.</li>
+            <li>Found payment failure patterns across banks, e-wallets and app platforms; fixes with product and engineering drove 25% sales growth.</li>
+            <li>Applied K-means segmentation and logistic regression churn models to shape retention and lifetime-value work.</li>
+          </ul>
+          <div class="role-stats"><span class="stat"><b>20%</b> marketing efficiency</span><span class="stat"><b>15%</b> higher conversion</span><span class="stat"><b>12%</b> lower churn</span></div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="wrap section" id="approach">
+    <div class="section-head">
+      <p class="eyebrow">How I work</p>
+      <h2 class="display-lg">Every number ties out</h2>
+    </div>
+    <div class="how">
+      <article><p class="caption">Pipeline</p><h3>Bronze, silver, gold</h3><p>Raw files land untouched, get cleaned and typed, then shaped into the tables people actually use. Each layer is rerunnable on Databricks.</p></article>
+      <article><p class="caption">Reconciliation</p><h3>Prove it before reporting it</h3><p>Totals reconcile back to the source at every step. Exceptions go to a human review queue instead of being quietly dropped.</p></article>
+      <article><p class="caption">Communication</p><h3>Answer first</h3><p>Findings lead with the conclusion and the number behind it, then the method, written for a partner or lawyer with five minutes.</p></article>
+    </div>
+  </section>
+
+  <section class="wrap section" id="about">
+    <div class="two-col">
+      <div>
+        <div class="section-head" style="margin-bottom:28px">
+          <p class="eyebrow">Skills</p>
+          <h2 class="headline">Grouped by what they are for</h2>
+        </div>
+        <div class="skill-groups">
+          <div class="skill-group"><span class="caption">Data &amp; analytics</span><p>SQL (PostgreSQL, MySQL, BigQuery), Python (pandas, NumPy, scikit-learn, openpyxl), PySpark, R, advanced Excel</p></div>
+          <div class="skill-group"><span class="caption">Platforms &amp; cloud</span><p>Databricks, Delta Lake, Unity Catalog, Microsoft Azure, Google Cloud Platform, Alteryx, Git</p></div>
+          <div class="skill-group"><span class="caption">Generative AI</span><p>Prompt engineering, Azure Document Intelligence, Azure OpenAI, human-in-the-loop review, Copilot Studio agents, Databricks Genie, Claude, Codex, Copilot</p></div>
+          <div class="skill-group"><span class="caption">BI &amp; apps</span><p>Power BI, Tableau, Looker Studio, Databricks Apps (Dash, Streamlit), Salesforce</p></div>
+          <div class="skill-group"><span class="caption">Methods</span><p>Reconciliation and data validation, ETL automation, ARR and revenue bridge modelling, compliance testing</p></div>
+        </div>
+      </div>
+      <div>
+        <div class="section-head" style="margin-bottom:28px">
+          <p class="eyebrow">Education</p>
+          <h2 class="headline">Still learning, formally</h2>
+        </div>
+        <ol class="timeline">
+          <li><span class="caption">Feb 2026 – Present</span><div><b>Master of Information Technology (Data Analytics)</b><span>University of Technology Sydney · Scholarship recipient</span></div></li>
+          <li><span class="caption">2023</span><div><b>Bachelor of Commerce, Business Analytics</b><span>University of New South Wales</span></div></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap section" aria-labelledby="earlier-h">
+    <div class="section-head" style="margin-bottom:24px">
+      <p class="eyebrow" id="earlier-h">Earlier work</p>
+    </div>
+    <div class="earlier">
+      <a href="https://public.tableau.com/app/profile/thienhuong.nguyen/viz/VICRoadAccidentDashboard2000-2005/Story" target="_blank" rel="noopener"><b>Road safety in Victoria</b><span>Risk factors and policy recommendations · Tableau</span></a>
+      <a href="https://public.tableau.com/app/profile/thienhuong.nguyen/vizzes" target="_blank" rel="noopener"><b>Tableau Public profile</b><span>All dashboards</span></a>
+      <a href="https://github.com/thienhuonqq" target="_blank" rel="noopener"><b>GitHub</b><span>Code and notebooks</span></a>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <section class="contact on-block" id="contact">
+      <p class="eyebrow">Contact</p>
+      <h2 class="display-lg">Hiring for analytics in Sydney? Let's talk.</h2>
+      <div class="contact-row">
+        <a class="btn btn-primary" href="mailto:thienhuongvn20@gmail.com">Email me</a>
+        <a class="btn btn-secondary" href="https://www.linkedin.com/in/thienhuong2011/" target="_blank" rel="noopener">LinkedIn</a>
+        <span class="email">thienhuongvn20@gmail.com</span>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer class="wrap">
+  <span class="caption">© 2026 Sophie Nguyen · Sydney</span>
+  <nav aria-label="Footer">
+    <a class="caption" href="#work">Work</a>
+    <a class="caption" href="https://drive.google.com/file/d/1FUD_K-32h2_xKTalb8KwsFOHGf77-ixT/view?usp=sharing" target="_blank" rel="noopener">CV</a>
+    <a class="caption" href="https://www.linkedin.com/in/thienhuong2011/" target="_blank" rel="noopener">LinkedIn</a>
+    <a class="caption" href="https://github.com/thienhuonqq" target="_blank" rel="noopener">GitHub</a>
+  </nav>
+</footer>
+
+</body>
+</html>
